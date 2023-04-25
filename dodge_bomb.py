@@ -29,8 +29,8 @@ def main():
     pg.display.set_caption("逃げろ！こうかとん")
     screen = pg.display.set_mode((1600, 900))
     clock = pg.time.Clock()
-    bg_img = pg.image.load("ex02/fig/pg_bg.jpg")
-    kk_img = pg.image.load("ex02/fig/3.png")
+    bg_img = pg.image.load("fig/pg_bg.jpg")
+    kk_img = pg.image.load("fig/3.png")
     kk_img = pg.transform.rotozoom(kk_img, 0, 2.0)
     kk_rct = kk_img.get_rect() # 練習4
     kk_rct.center = 900, 400 # 練習4
@@ -43,14 +43,14 @@ def main():
     vx, vy = +1, +1 # 練習3
     bb_rct = bb_img.get_rect() # 練習3
     bb_rct.center = x, y # 練習3
-    muki = {(-1, -1):pg.transform.rotozoom(kk_img, 315, 1.0),
-           (0, 1):pg.transform.rotozoom(kk_img, 270, 1.0),
-           (1, -1):pg.transform.rotozoom(kk_img, 225, 1.0),
-           (1, 0):pg.transform.rotozoom(kk_img, 180, 1.0),
-           (1, 1):pg.transform.rotozoom(kk_img, 135, 1.0),
-           (0, 1):pg.transform.rotozoom(kk_img, 90, 1.0),
-           (-1, -1):pg.transform.rotozoom(kk_img, 45, 1.0),
-           (-1, 0):pg.transform.rotozoom(kk_img, 0, 1.0)}
+    muki = {(-1, -1):pg.transform.rotozoom(kk_img, 315, 1.0), #左上
+           (0, -1):pg.transform.rotozoom(kk_img, 270, 1.0),   #上
+           (1, -1):pg.transform.rotozoom(kk_img, 225, 1.0),   #右上
+           (1, 0):pg.transform.rotozoom(kk_img, 180, 1.0),    #右
+           (1, 1):pg.transform.rotozoom(kk_img, 135, 1.0),    #右下
+           (0, 1):pg.transform.rotozoom(kk_img, 90, 1.0),     #下
+           (-1, 1):pg.transform.rotozoom(kk_img, 45, 1.0),    #左下
+           (-1, 0):pg.transform.rotozoom(kk_img, 0, 1.0)}     #左
     tmr = 0
 
     while True:
@@ -79,7 +79,7 @@ def main():
         if not tate:  # 縦方向にはみ出ていたら
             vy *= -1
         screen.blit(bb_img, bb_rct) # 練習3
-        if kk_rct.colliderect(bb_rct):  # 練習６
+        if kk_rct.colliderect(bb_rct):  # 練習6
             return
 
         pg.display.update()
