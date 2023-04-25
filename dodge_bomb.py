@@ -43,6 +43,14 @@ def main():
     vx, vy = +1, +1 # 練習3
     bb_rct = bb_img.get_rect() # 練習3
     bb_rct.center = x, y # 練習3
+    muki = {(-1, -1):pg.transform.rotozoom(kk_img, 315, 1.0),
+           (0, 1):pg.transform.rotozoom(kk_img, 270, 1.0),
+           (1, -1):pg.transform.rotozoom(kk_img, 225, 1.0),
+           (1, 0):pg.transform.rotozoom(kk_img, 180, 1.0),
+           (1, 1):pg.transform.rotozoom(kk_img, 135, 1.0),
+           (0, 1):pg.transform.rotozoom(kk_img, 90, 1.0),
+           (-1, -1):pg.transform.rotozoom(kk_img, 45, 1.0),
+           (-1, 0):pg.transform.rotozoom(kk_img, 0, 1.0)}
     tmr = 0
 
     while True:
