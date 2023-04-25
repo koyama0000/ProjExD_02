@@ -25,7 +25,6 @@ def main():
     pg.draw.circle(bb_img, (255, 0, 0), (10, 10), 10) # 練習１
     bb_img.set_colorkey((0, 0, 0)) # 練習1
     x, y = random.randint(0, 1600), random.randint(0, 900) # 練習2
-    screen.blit(bb_img, [x, y]) # 練習2
     # screen.blit(bb_img, [x, y]) # 練習2
     vx, vy = +1, +1 # 練習3
     bb_rct = bb_img.get_rect() # 練習3
@@ -47,7 +46,7 @@ def main():
 
         screen.blit(bg_img, [0, 0])
         screen.blit(kk_img, [900, 400])
-        screen.blit(bb_img, kk_rct) # 練習4
+        screen.blit(kk_img, kk_rct) # 練習4
         bb_rct.move_ip(vx, vy) # 練習3
         screen.blit(bb_img, bb_rct) # 練習3
 
